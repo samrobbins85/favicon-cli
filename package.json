@@ -1,0 +1,25 @@
+{
+  "name": "favicon-cli",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "favicon-cli": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samrobbins85/favicon-cli.git"
+  },
+  "author": "Sam Robbins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samrobbins85/favicon-cli/issues"
+  },
+  "homepage": "https://github.com/samrobbins85/favicon-cli#readme",
+  "dependencies": {
+    "cli-highlight": "^2.1.11",
+    "sharp": "^0.28.3",
+    "to-ico": "^1.1.5"
+  }
+}
