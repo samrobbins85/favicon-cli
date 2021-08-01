@@ -3,7 +3,7 @@ import sharp from "sharp";
 import fs from "fs";
 import toIco from "to-ico";
 import { highlight } from "cli-highlight";
-const mySvg = sharp("favicon.svg");
+const mySvg = sharp("favicon.svg", { density: 10000 });
 
 const tempPng = await mySvg.resize(32, 32).toBuffer();
 
