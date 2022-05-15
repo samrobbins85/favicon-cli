@@ -3,7 +3,30 @@ import sharp from "sharp";
 import fs from "fs";
 import toIco from "to-ico";
 import { highlight } from "cli-highlight";
-const mySvg = sharp("favicon.svg", { density: 10000 });
+const mySvg = await (async () => {
+  // automatically adjusting svg density
+  const instance = sharp("favicon.svg");
+  const metadata = await instance.metadata();
+  const initDensity = metadata.density ?? 72;
+
+  let wDensity = 0;
+  let hDensity = 0;
+
+  if (metadata.width) {
+    wDensity = (initDensity * 1024) / metadata.width
+  }
+
+  if (metadata.height) {
+    hDensity = (initDensity * 1024) / metadata.height
+  }
+
+  if (!wDensity && !hDensity) {
+    // if there's no width/height metadata
+    return instance
+  }
+
+  return sharp("favicon.svg", { density: Math.max(wDensity, hDensity) });
+})();
 
 const tempPng = await mySvg.resize(32, 32).toBuffer();
 
