@@ -19,7 +19,7 @@
   "homepage": "https://github.com/samrobbins85/favicon-cli#readme",
   "dependencies": {
     "cli-highlight": "^2.1.11",
-    "sharp": "^0.28.3",
+    "sharp": "^0.30.5",
     "svgo": "^2.8.0",
     "to-ico": "^1.1.5"
   }
